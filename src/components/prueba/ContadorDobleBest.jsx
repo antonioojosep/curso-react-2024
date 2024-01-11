@@ -8,8 +8,9 @@ const ContadorDobleBest = () => {
     const [friends, setFriends] = useState(initialState);
 
     function handleIncrement(friendName) {
-        setFriends({ ...friends,[friendName]: friends.friendName + 1});
+        setFriends({ ...friends,[friendName] : friends[friendName]+1});
     }
+    
   return (
     <>
     <div>
