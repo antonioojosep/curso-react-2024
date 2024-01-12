@@ -1,9 +1,8 @@
 //------IMPORT-----------------
 import "./App.css";
 import React from 'react';
-import ContadorDobleBest from "./components/prueba/ContadorDobleBest";
-import ContadorDoble from "./components/prueba/ContadorDoble";
-import DarkLightMode from "./components/prueba/DarkLightMode";
+import RegistrarFormulario from "./components/prueba/RegistrarFormulario";
+import TodoListTailWindCss from "./components/prueba/TodoListTailWindCss";
 
 
 //--------Declaración de variables globales--------
@@ -12,13 +11,13 @@ const App = () => {
   //---------Hooks---------------------
 
   //---------Declaración de variables locales------
-  const texto = "Hola";
-  const numero = 1;
-  const array = ["pera", "platano", "manzana", "uva", "fresa"];
-  const objeto = {
-    nombre: "Antonio",
-    edad : 20,
-  };
+  // const texto = "Hola";
+  // const numero = 1;
+  // const array = ["pera", "platano", "manzana", "uva", "fresa"];
+  // const objeto = {
+  //   nombre: "Antonio",
+  //   edad : 20,
+  // };
   //---------Funciones del componente------------
    return (
     // <div>
@@ -32,10 +31,13 @@ const App = () => {
     //     <h3>Me llamo {objeto.nombre} y tengo {objeto.edad} años</h3>
     //   </div>
     // </div>
+    
+    <>
+    <RegistrarFormulario></RegistrarFormulario>
 
-    <ContadorDobleBest>
-      
-    </ContadorDobleBest>
+    <TodoListTailWindCss></TodoListTailWindCss>
+    </>
+    
     )
 }
 
