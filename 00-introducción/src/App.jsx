@@ -3,6 +3,10 @@ import "./App.css";
 import React from 'react';
 import RegistrarFormulario from "./components/prueba/RegistrarFormulario";
 import TodoListTailWindCss from "./components/prueba/TodoListTailWindCss";
+import ComponenteProps from "./components/Props/ComponenteProps";
+import UseEffectBasic from "./components/UseEffect/UseEffectBasic";
+import ResizeListener from "./components/UseEffect/ResizeListener";
+import GitHubUsers from "./components/UseEffect/GitHubUserCardApi/GitHubUsers";
 
 
 //--------Declaración de variables globales--------
@@ -32,10 +36,14 @@ const App = () => {
     //   </div>
     // </div>
     
-    <>
-    <RegistrarFormulario></RegistrarFormulario>
+    // <>
+    // <RegistrarFormulario></RegistrarFormulario>
 
-    <TodoListTailWindCss></TodoListTailWindCss>
+    // <TodoListTailWindCss></TodoListTailWindCss>
+    // </>
+
+    <>
+    <GitHubUsers></GitHubUsers>
     </>
     
     )
