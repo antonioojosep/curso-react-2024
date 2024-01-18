@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
+
 
 const Modal = () => {
+  
+  
   return (
     <div>Modal</div>
   )
