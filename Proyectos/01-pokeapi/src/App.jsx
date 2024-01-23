@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { useEffect } from "react";
+import "./App.css";
+const URL = "https://pokeapi.co/api/v2/pokemon?limit=100";
 function App() {
-  const [count, setCount] = useState(0)
+  const [pokemon, setPokemon] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  function handleDelete() {
+    // debo borrar la tarjeta pokemon cuyo id sea ...
+  }
+
+  useEffect(() => {
+    //Acceso a la api de pokeapi.co
+    // creo la función o la importo de un helper
+    const fechData = async () => {
+      try {
+        const response = await fetch(URL);
+        if(!response.ok) {
+          throw new Error
+        }
+        const data = await response.json();
+        const results = data.results;
+        const pokemonData = await Promise.all(
+          results.map( async (pokemon,index) => {
+            const resp = await fetch(pokemon.url)
+            const pokemonDetails = await resp.json();
+            return {
+              id: pokemonDetails.id,
+              name: pokemonDetails.name,
+              image: pokemonDetails?.sprites.other.dream_world.front_default,
+              stats:"Las sacas tú... y es la media aritmética de las stats"
+              // (0-33 --> 1, 34-66 -->2 66- -->3 oro,plata, bronce)
+            };
+          })
+
+         )
+         setPokemon(pokemonData)
+         setLoading(false)
+      } catch (error) {}
+    };
+
+    // ejecuto la función
+    fechData()
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="flex flex-wrap justify-center">
+        {loading ? ( <Spinner/> ) : (
+          pokemon.map((pokemon) => ())
+        )}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
